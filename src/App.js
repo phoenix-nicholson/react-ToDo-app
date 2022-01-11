@@ -1,24 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { NavLink, Switch, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
+import { getUser } from './services/users';
+import React, { useState } from 'react';
+import Auth from './views/Auth/Auth';
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(getUser());
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <BrowserRouter>
+      <header>
+        <NavLink to="/auth">Login Page</NavLink>
       </header>
-    </div>
+      <Switch>
+        <Route exact path="/">
+          {currentUser && (
+            <>
+              <p>Logged In</p>
+            </>
+          )}
+          {!currentUser && <Auth setCurrentUser={setCurrentUser} />}
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
