@@ -8,9 +8,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState(getUser());
   return (
     <BrowserRouter>
-      <header>
-        <NavLink to="/auth">Login Page</NavLink>
-      </header>
+      <header></header>
       <Switch>
         <Route exact path="/">
           {currentUser && (

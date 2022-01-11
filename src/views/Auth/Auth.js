@@ -23,7 +23,7 @@ export default function Auth({ setCurrentUser }) {
 
   return (
     <div>
-      <Header setType={setType} />
+      <Header type={type} setType={setType} />
       <AuthForm
         errorMessage={errorMessage}
         email={email}

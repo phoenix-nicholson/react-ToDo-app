@@ -1,10 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
+import './Header.css';
 
-export default function Header(type, setType) {
+export default function Header({ type, setType }) {
   return (
     <div>
-      <div>
+      <div className="header-div">
         <h2
           onClick={() => {
             setType('sign in');
@@ -14,7 +15,7 @@ export default function Header(type, setType) {
           Sign In
         </h2>
       </div>
-      <div>
+      <div className="header-div">
         <h2
           onClick={() => {
             setType('sign up');
