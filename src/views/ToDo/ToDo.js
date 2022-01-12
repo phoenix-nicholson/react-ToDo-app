@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { createToDo, fetchTodo } from '../../services/todo';
+import { createToDo, fetchTodo, toggleComplete } from '../../services/todo';
 import TodoList from '../../components/TodoList';
 import TodoForm from '../../components/TodoForm';
 
@@ -26,14 +26,20 @@ export default function Todo() {
     try {
       await createToDo(todo);
       alert('Todo created');
-    } catch {
+    } catch (e) {
       alert('Failed to created todo');
     }
   };
 
+  const handleClick = async (task) => {
+    await toggleComplete(task.id, !task.is_complete);
+    const resp = await fetchTodo();
+    setTodoList(resp);
+  };
+
   return (
     <div>
-      <TodoList todoList={todoList} />
+      <TodoList todoList={todoList} handleClick={handleClick} />
       <TodoForm todo={todo} handleSubmit={handleSubmit} setTodo={setTodo} />
     </div>
   );

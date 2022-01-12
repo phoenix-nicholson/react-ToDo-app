@@ -6,6 +6,11 @@ export async function createToDo(task) {
 }
 
 export async function fetchTodo() {
-  const resp = await client.from('todos').select('*');
+  const resp = await client.from('todos').select('*').order('id', { ascending: true });
+  return checkError(resp);
+}
+
+export async function toggleComplete(id, is_complete) {
+  const resp = await client.from('todos').update({ is_complete: is_complete }).eq('id', id);
   return checkError(resp);
 }
