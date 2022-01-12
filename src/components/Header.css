@@ -1,0 +1,8 @@
+.header-div h2 {
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+.header-div h2.active {
+  border: 2px solid black;
+}
