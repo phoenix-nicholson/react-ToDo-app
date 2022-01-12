@@ -1,4 +1,4 @@
-import { NavLink, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import { BrowserRouter } from 'react-router-dom/cjs/react-router-dom.min';
 import { getUser, logout } from './services/users';
 import React, { useState } from 'react';
