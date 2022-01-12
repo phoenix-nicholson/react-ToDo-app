@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { createToDo, fetchTodo, toggleComplete } from '../../services/todo';
+import { createToDo, deleteTodo, fetchTodo, toggleComplete } from '../../services/todo';
 import TodoList from '../../components/TodoList';
 import TodoForm from '../../components/TodoForm';
 
@@ -39,9 +39,13 @@ export default function Todo() {
     setTodoList(resp);
   };
 
+  const handleDelete = async (id) => {
+    await deleteTodo(id);
+  };
+
   return (
     <div>
-      <TodoList todoList={todoList} handleClick={handleClick} />
+      <TodoList todoList={todoList} handleClick={handleClick} handleDelete={handleDelete} />
       <TodoForm todo={todo} handleSubmit={handleSubmit} setTodo={setTodo} />
     </div>
   );
