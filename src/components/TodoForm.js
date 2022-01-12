@@ -9,7 +9,7 @@ export default function TodoForm({ setTodo, handleSubmit }) {
           type="text"
           name="todo"
           onChange={(e) => {
-            setTodo('todo', e.target.value);
+            setTodo(e.target.value);
           }}
         />
       </div>
