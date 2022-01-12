@@ -8,9 +8,9 @@ export default function Header({ type, setType }) {
       <div className="header-div">
         <h2
           onClick={() => {
-            setType('sign in');
+            setType('signin');
           }}
-          className={classNames({ active: type === 'sign in' })}
+          className={classNames({ active: type === 'signin' })}
         >
           Sign In
         </h2>

@@ -24,6 +24,7 @@ export default function Auth({ setCurrentUser }) {
   return (
     <div>
       <Header type={type} setType={setType} />
+
       <AuthForm
         errorMessage={errorMessage}
         email={email}
