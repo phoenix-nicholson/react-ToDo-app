@@ -4,7 +4,7 @@ import TodoList from '../../components/TodoList';
 import TodoForm from '../../components/TodoForm';
 
 export default function Todo() {
-  const [todo, setTodo] = useState({});
+  const [todo, setTodo] = useState('');
   const [todoList, setTodoList] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -24,8 +24,10 @@ export default function Todo() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await createToDo(todo);
+      const resp = await createToDo(todo);
       alert('Todo created');
+      setTodo('');
+      setTodoList((prev) => [...prev, resp[0]]);
     } catch (e) {
       alert('Failed to created todo');
     }

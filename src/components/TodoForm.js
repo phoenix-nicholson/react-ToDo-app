@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function TodoForm({ setTodo, handleSubmit }) {
+export default function TodoForm({ todo, setTodo, handleSubmit }) {
   return (
     <form className="form">
       <div className="form-controls">
@@ -8,6 +8,8 @@ export default function TodoForm({ setTodo, handleSubmit }) {
         <input
           type="text"
           name="todo"
+          placeholder="add new to-do"
+          value={todo}
           onChange={(e) => {
             setTodo(e.target.value);
           }}
